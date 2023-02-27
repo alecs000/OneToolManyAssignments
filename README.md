@@ -11,4 +11,6 @@ Zenject - https://github.com/modesttree/Zenject/releases/tag/9.2.0
 
 Монетка  -  https://www.flaticon.com/free-icon/ruble_1490839?term=ruble&page=1&position=7&origin=search&related_id=1490839
 
+Кнопка настроек - https://www.flaticon.com/free-icon/setting_4517743?term=settings+button&page=1&position=24&origin=search&related_id=4517743
+
 Шрифт  - https://fonts.google.com/specimen/Tilt+Warp
