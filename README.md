@@ -20,3 +20,5 @@ Zenject - https://github.com/modesttree/Zenject/releases/tag/9.2.0
 Воздушный шарик - https://www.flaticon.com/free-icon/balloon_873320?term=ballon&page=1&position=86&origin=search&related_id=
 
 Яблоко - https://www.flaticon.com/ru/free-icon/apple_415733?term=%D1%8F%D0%B1%D0%BB%D0%BE%D0%BA%D0%BE&page=1&position=1&origin=search&related_id=415733
+
+Мультитул - https://www.flaticon.com/free-icon/multitool_2464729?term=multitool&page=1&position=6&origin=search&related_id=2464729
