@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CenterOfMass : MonoBehaviour
+namespace Assets.Project.Code
 {
-    [SerializeField] private Transform centerOfMass;
-    private void Awake()
+    public class CenterOfMass : MonoBehaviour
     {
-        GetComponent<Rigidbody2D>().centerOfMass = Vector2.Scale(centerOfMass.localPosition, transform.localScale);
+        [SerializeField] private Transform centerOfMass;
+        private void Awake()
+        {
+            GetComponent<Rigidbody2D>().centerOfMass = Vector2.Scale(centerOfMass.localPosition, transform.localScale);
+        }
     }
 }

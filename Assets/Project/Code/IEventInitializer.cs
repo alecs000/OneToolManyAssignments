@@ -1,6 +1,6 @@
 using System;
 
-namespace Assets.Code
+namespace Assets.Project.Code
 {
     public interface IEventInitializer<T> where T : Delegate
     {

@@ -1,29 +1,30 @@
-using Assets.Code.Bank;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Project.Code.Bank;
 using UnityEngine;
 
-public class ItemAwards : MonoBehaviour
+namespace Assets.Project.Code.Items
 {
-    [SerializeField] private Coins coins;
-    [SerializeField] private ComletedDefault[] comletedDefault;
+    public class ItemAwards : MonoBehaviour
+    {
+        [SerializeField] private Coins coins;
+        [SerializeField] private ComletedDefault[] comletedDefault;
 
-    private void Start()
-    {
-        foreach (var item in comletedDefault)
+        private void Start()
         {
-            item.AddObserver(GetReward);
+            foreach (var item in comletedDefault)
+            {
+                item.AddObserver(GetReward);
+            }
         }
-    }
-    public void GetReward(ItemScriptableObject itemScriptableObject)
-    {
-        coins.Add(itemScriptableObject.Cost);
-    }
-    private void OnDestroy()
-    {
-        foreach (var item in comletedDefault)
+        public void GetReward(ItemScriptableObject itemScriptableObject)
         {
-            item.RemoveObserver(GetReward);
+            coins.Add(itemScriptableObject.Cost);
+        }
+        private void OnDestroy()
+        {
+            foreach (var item in comletedDefault)
+            {
+                item.RemoveObserver(GetReward);
+            }
         }
     }
 }

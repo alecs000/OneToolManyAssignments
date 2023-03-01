@@ -1,58 +1,71 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Project.Code.BackgroundWall;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Product : MonoBehaviour
+namespace Assets.Project.Code.UI.Shop
 {
-    private const string ProductState = "ProductState";
-    private const string Bought = "Bought";
-    private const string Equipped = "Equipped";
-
-    [SerializeField] private BackgroundScriptableObject backgroundScriptableObject;
-    [SerializeField] private WallsShop wallsShop;
-    [SerializeField] private TMP_Text costText;
-    [SerializeField] private Image wallImage;
-    [SerializeField] private GameObject BuyButton;
-    [SerializeField] private GameObject equippedGameObject;
-    [SerializeField] private GameObject boughtGameObject;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public class Product : MonoBehaviour
     {
-        costText.text = backgroundScriptableObject.Cost.ToString();
-        wallImage.sprite = backgroundScriptableObject.SpriteBackground;
-        if (PlayerPrefs.HasKey(ProductState))
+        private string ProductState => backgroundScriptableObject.Name;
+        private const string Bought = "Bought";
+        private const string Equipped = "Equipped";
+
+        [SerializeField] private BackgroundScriptableObject backgroundScriptableObject;
+        [SerializeField] private WallsShop wallsShop;
+        [Header("UIElements")]
+        [SerializeField] private TMP_Text costText;
+        [SerializeField] private Image wallImage;
+        [SerializeField] private GameObject BuyButton;
+        [SerializeField] private GameObject equippedGameObject;
+        [SerializeField] private GameObject boughtGameObject;
+
+
+        // Start is called before the first frame update
+        void Start()
         {
-            string savedState = PlayerPrefs.GetString(ProductState);
-            if (savedState == Bought)
+            costText.text = backgroundScriptableObject.Cost.ToString();
+            wallImage.sprite = backgroundScriptableObject.SpriteBackground;
+            if (PlayerPrefs.HasKey(ProductState))
             {
-                SetBought();
-            }
-            if (savedState == Equipped)
-            {
-                SetEquipped();
+                string savedState = PlayerPrefs.GetString(ProductState);
+                if (savedState == Bought)
+                {
+                    SetBought();
+                }
+                if (savedState == Equipped)
+                {
+                    Equip();
+                }
             }
         }
-    }
-    public void TryBuy()
-    {
-        wallsShop.TryBuy(backgroundScriptableObject, this);
-        SetEquipped();
-    }
-    public void SetEquipped()
-    {
-        PlayerPrefs.SetString(ProductState, Equipped);
-        costText.gameObject.SetActive(false);
-        wallsShop.Equip(backgroundScriptableObject, this);
-        equippedGameObject.SetActive(true);
-    }
-    public void SetBought()
-    {
-        PlayerPrefs.SetString(ProductState, Bought);
-        costText.gameObject.SetActive(false);
-        boughtGameObject.SetActive(true);
+        public void TryBuy()
+        {
+            if (wallsShop.TryBuy(backgroundScriptableObject, this))
+                SetEquipped();
+        }
+        public void Equip()
+        {
+            wallsShop.Equip(backgroundScriptableObject, this);
+            SetEquipped();
+        }
+        public void SetEquipped()
+        {
+            PlayerPrefs.SetString(ProductState, Equipped);
+            SetState(equippedGameObject);
+        }
+        public void SetBought()
+        {
+            PlayerPrefs.SetString(ProductState, Bought);
+            SetState(boughtGameObject);
+        }
+        private void SetState(GameObject gameObjectState)
+        {
+            costText.gameObject.SetActive(false);
+            BuyButton.SetActive(false);
+            equippedGameObject.SetActive(false);
+            boughtGameObject.SetActive(false);
+            gameObjectState.SetActive(true);
+        }
     }
 }

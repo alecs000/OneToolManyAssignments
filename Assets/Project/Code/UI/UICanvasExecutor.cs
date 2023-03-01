@@ -1,30 +1,33 @@
 using UnityEngine;
 
-public class UICanvasExecutor : MonoBehaviour
+namespace Assets.Project.Code.UI
 {
-    [SerializeField] private SeparateUIElement[] SeparateUIElement; 
-    private CanvasSetter _setter;
-    
-    private void Awake()
+    public class UICanvasExecutor : MonoBehaviour
     {
-        _setter = new();
-    }
-    public void MenuActivate(CanvasGroup SetPanel = null)
-    {
-        foreach (var item in SeparateUIElement)
+        [SerializeField] private SeparateUIElement[] SeparateUIElement;
+        private CanvasSetter _setter;
+
+        private void Awake()
         {
-            item.FlyAway();
+            _setter = new();
         }
-        _setter.SetCanvasGroup(SetPanel);
-        Time.timeScale = 0;
-    }
-    public void MenuDeactivate()
-    {
-        foreach (var item in SeparateUIElement)
+        public void MenuActivate(CanvasGroup SetPanel = null)
         {
-            item.FlyBack();
+            foreach (var item in SeparateUIElement)
+            {
+                item.FlyAway();
+            }
+            _setter.SetCanvasGroup(SetPanel);
+            Time.timeScale = 0;
         }
-        _setter.SetCanvasGroup(null);
-        Time.timeScale = 1;
+        public void MenuDeactivate()
+        {
+            foreach (var item in SeparateUIElement)
+            {
+                item.FlyBack();
+            }
+            _setter.SetCanvasGroup(null);
+            Time.timeScale = 1;
+        }
     }
 }

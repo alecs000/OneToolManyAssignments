@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Assets.Scripts.Code
+namespace Assets.Project.Code.UI
 {
     public class SoundService : MonoBehaviour
     {

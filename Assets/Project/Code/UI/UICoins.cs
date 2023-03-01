@@ -1,24 +1,25 @@
-using Assets.Code.Bank;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Project.Code.Bank;
 using TMPro;
 using UnityEngine;
 
-public class UICoins : MonoBehaviour
+namespace Assets.Project.Code.UI
 {
-    [SerializeField] private Coins coins;
-    [SerializeField] private TMP_Text coinsText;
-    private void Start()
+    public class UICoins : MonoBehaviour
     {
-        coins.AddObserver(OnCoinsValueChange);
-    }
+        [SerializeField] private Coins coins;
+        [SerializeField] private TMP_Text coinsText;
+        private void Start()
+        {
+            coins.AddObserver(OnCoinsValueChange);
+        }
 
-    private void OnCoinsValueChange(int newValue)
-    {
-        coinsText.text = newValue.ToString();
-    }
-    private void OnDestroy()
-    {
-        coins.RemoveObserver(OnCoinsValueChange);
+        private void OnCoinsValueChange(int newValue)
+        {
+            coinsText.text = newValue.ToString();
+        }
+        private void OnDestroy()
+        {
+            coins.RemoveObserver(OnCoinsValueChange);
+        }
     }
 }

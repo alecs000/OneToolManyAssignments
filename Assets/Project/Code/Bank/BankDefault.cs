@@ -1,7 +1,8 @@
+using Assets.Project.Code.Observable;
 using System;
 using UnityEngine;
 
-namespace Assets.Code.Bank
+namespace Assets.Project.Code.Bank
 {
     public abstract class BankDefault : MonoBehaviour, IEventInitializer<Action<int>>
     {

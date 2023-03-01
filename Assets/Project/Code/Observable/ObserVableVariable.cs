@@ -1,31 +1,33 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class ObservableVariable<T>
+namespace Assets.Project.Code.Observable
 {
-    public event Action<T> OnChanged;
-    private T _value;
-    public T Value { 
-        get { return _value; }
-        set {
-            T oldValue = _value;
-            _value = value; 
-            OnChanged?.Invoke(value);
+    public class ObservableVariable<T>
+    {
+        public event Action<T> OnChanged;
+        private T _value;
+        public T Value
+        {
+            get { return _value; }
+            set
+            {
+                T oldValue = _value;
+                _value = value;
+                OnChanged?.Invoke(value);
+            }
         }
-    }
-    public ObservableVariable()
-    {
-        Value = default;
-    }
+        public ObservableVariable()
+        {
+            Value = default;
+        }
 
-    public ObservableVariable(T value)
-    {
-        Value = value;
-    }
-    public override string ToString()
-    {
-        return Value.ToString();
+        public ObservableVariable(T value)
+        {
+            Value = value;
+        }
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 }

@@ -1,26 +1,28 @@
-using Assets.Code.Bank;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Project.Code.BackgroundWall;
+using Assets.Project.Code.Bank;
 using UnityEngine;
 
-public class WallsShop : MonoBehaviour
+namespace Assets.Project.Code.UI.Shop
 {
-    [SerializeField] private Coins coins;
-    [SerializeField] private Background background;
-    [SerializeField] private Product currentProduct;
-    public bool TryBuy(BackgroundScriptableObject backgroundScriptableObject, Product sender)
+    public class WallsShop : MonoBehaviour
     {
-        if (coins.TryRemove(backgroundScriptableObject.Cost))
+        [SerializeField] private Coins coins;
+        [SerializeField] private Background background;
+        [SerializeField] private Product currentProduct;
+        public bool TryBuy(BackgroundScriptableObject backgroundScriptableObject, Product sender)
         {
-            Equip(backgroundScriptableObject, sender);
-            return true;
+            if (coins.TryRemove(backgroundScriptableObject.Cost))
+            {
+                Equip(backgroundScriptableObject, sender);
+                return true;
+            }
+            return false;
         }
-        return false;
-    }
-    public void Equip(BackgroundScriptableObject backgroundScriptableObject, Product sender)
-    {
-        currentProduct.SetBought();
-        currentProduct = sender;
-        background.SetBacground(backgroundScriptableObject);
+        public void Equip(BackgroundScriptableObject backgroundScriptableObject, Product sender)
+        {
+            currentProduct.SetBought();
+            currentProduct = sender;
+            background.SetBacground(backgroundScriptableObject);
+        }
     }
 }

@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class OutOfScreen : MonoBehaviour
+namespace Assets.Project.Code
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class OutOfScreen : MonoBehaviour
     {
-        collision.gameObject.SetActive(false);
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }

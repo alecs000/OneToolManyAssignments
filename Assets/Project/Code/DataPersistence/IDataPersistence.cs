@@ -1,5 +1,10 @@
-public interface IDataPersistence
+using Assets.Project.Code.DataPersistence.Data;
+
+namespace Assets.Project.Code.DataPersistence
 {
-    void LoadData(GameData data);
-    void SaveData(GameData data);
+    public interface IDataPersistence
+    {
+        void LoadData(GameData data);
+        void SaveData(GameData data);
+    }
 }

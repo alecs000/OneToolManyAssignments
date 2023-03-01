@@ -1,27 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Project.Code.Input;
 using UnityEngine;
 using Zenject;
 
-public class InputInstaller : MonoInstaller
+namespace Assets.Project.Code.Installers
 {
-    [SerializeField] private MouseInput mouseInputPrefab;
-    public override void InstallBindings()
+    public class InputInstaller : MonoInstaller
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
+        [SerializeField] private MouseInput mouseInputPrefab;
+        public override void InstallBindings()
         {
-            BindMouseInput();
+            if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                BindMouseInput();
+            }
+        }
+
+        private void BindMouseInput()
+        {
+            MouseInput mouseInput = Container.InstantiatePrefabForComponent<MouseInput>(mouseInputPrefab);
+            Container.
+                Bind<IInputService>()
+                .To<MouseInput>()
+                .FromInstance(mouseInput)
+                .AsSingle();
         }
     }
-
-    private void BindMouseInput()
-    {
-        MouseInput mouseInput = Container.InstantiatePrefabForComponent<MouseInput>(mouseInputPrefab);
-        Container.
-            Bind<IInputService>()
-            .To<MouseInput>()
-            .FromInstance(mouseInput)
-            .AsSingle();
-    }
 }
-

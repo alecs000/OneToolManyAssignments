@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HalfAFruit : MonoBehaviour
+namespace Assets.Project.Code.Items
 {
-    [SerializeField] private GameObject wholeFruit;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class HalfAFruit : MonoBehaviour
     {
-        if (collision.TryGetComponent<OutOfScreen>(out OutOfScreen border))
+        [SerializeField] private GameObject wholeFruit;
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            wholeFruit.SetActive(false);
+            if (collision.TryGetComponent(out OutOfScreen border))
+            {
+                wholeFruit.SetActive(false);
+            }
         }
     }
 }

@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Project.Code.UI;
 using UnityEngine;
 
-public class Training : MonoBehaviour
+namespace Assets.Project.Code
 {
-    private const string IsFirstTime = "IsFirstTime";
-    [SerializeField] private CanvasGroup training;
-    [SerializeField] private UICanvasExecutor uICanvasExecutor;
-    private void Start()
+    public class Training : MonoBehaviour
     {
-        if (!PlayerPrefs.HasKey(IsFirstTime))
+        private const string IsFirstTime = "IsFirstTime";
+        [SerializeField] private CanvasGroup training;
+        [SerializeField] private UICanvasExecutor uICanvasExecutor;
+        private void Start()
         {
-            uICanvasExecutor.MenuActivate(training);
-            PlayerPrefs.SetInt(IsFirstTime, 1);
+            if (!PlayerPrefs.HasKey(IsFirstTime))
+            {
+                uICanvasExecutor.MenuActivate(training);
+                PlayerPrefs.SetInt(IsFirstTime, 1);
+            }
         }
     }
 }

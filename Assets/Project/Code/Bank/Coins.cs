@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Assets.Project.Code.DataPersistence;
+using Assets.Project.Code.DataPersistence.Data;
 
-namespace Assets.Code.Bank
+namespace Assets.Project.Code.Bank
 {
     public class Coins : BankDefault, IDataPersistence
     {

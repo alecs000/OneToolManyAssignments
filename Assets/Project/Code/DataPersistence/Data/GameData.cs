@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class GameData
+namespace Assets.Project.Code.DataPersistence.Data
 {
-    public int CoinsAmount;
-    public GameData() 
+    [System.Serializable]
+    public class GameData
     {
+        public int CoinsAmount;
+        public GameData()
+        {
 
+        }
     }
 }
