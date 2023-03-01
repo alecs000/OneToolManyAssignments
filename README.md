@@ -9,6 +9,10 @@ Dotween - http://dotween.demigiant.com/
 
 Шрифт  - https://fonts.google.com/specimen/Titan+One
 
+Музыка:
+
+Фоновая - https://audionautix.com/Music/DogHouse.mp3
+
 Спрайты:
 
 Монетка  -  https://www.flaticon.com/free-icon/ruble_1490839?term=ruble&page=1&position=7&origin=search&related_id=1490839
