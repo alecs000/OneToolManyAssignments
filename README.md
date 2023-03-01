@@ -29,4 +29,6 @@ Dotween - http://dotween.demigiant.com/
 
 Мультитул - https://www.flaticon.com/free-icon/multitool_2464729?term=multitool&page=1&position=6&origin=search&related_id=2464729
 
-Кирпичная стена: https://catherineasquithgallery.com/krasnye-fony/4950-krasnyj-kirpich-fon-154-foto.html
+Кирпичная стена - https://catherineasquithgallery.com/krasnye-fony/4950-krasnyj-kirpich-fon-154-foto.html
+
+Фон градиент - https://phonoteka.org/55793-sine-krasnyj-fon.html
