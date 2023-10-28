@@ -1,4 +1,5 @@
 # OneToolManyAssignments
+Описание: чуть больше чем кликер
 Плагины:
 
 Zenject - https://github.com/modesttree/Zenject/releases/tag/9.2.0
